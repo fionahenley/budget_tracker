@@ -1,6 +1,14 @@
 let transactions = [];
 let myChart;
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").then(reg => {
+      console.log("We found your service worker file!", reg);
+    });
+  });
+};
+
 fetch("/api/transaction")
   .then(response => {
     return response.json();
@@ -121,10 +129,12 @@ function sendTransaction(isAdding) {
       "Content-Type": "application/json"
     }
   })
-  .then(response => {    
+  .then(response => {  
+    console.log("res", response)  
     return response.json();
   })
   .then(data => {
+    console.log("data", data)
     if (data.errors) {
       errorEl.textContent = "Missing Information";
     }
@@ -151,3 +161,4 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
