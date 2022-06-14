@@ -15,10 +15,14 @@ An application to keep track of expenses. The data is graphed using Charts.js. P
 
 ## Installation
 npm install
+npm start
+run on localhost
+
 
 ## Usage
 Add an item and price and click add expense. To subtract an expense, add a name and total and click subtract expense.
-
+https://fionahenley.github.io/budget_tracker/
+https://github.com/fionahenley/budget_tracker
 ## Credits
 Fiona Henley
 
